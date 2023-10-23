@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::prefix('/admin-panel')->group(function () {
+    Route::get('/', [AdminController::class, 'index']);
+    Route::post('/create-hall', [AdminController::class, 'createHall'])->name('add_hall');
+    Route::get('/{id}/delete-hall', [AdminController::class, 'deleteHall'])->name('delete_hall');
+
+    Route::post('/create-hall-detail', [AdminController::class, 'createHallDetail'])->name('add_hall_detail');
+    Route::post('/{id}/create-seats', [AdminController::class, 'createSeats'])->name('add_seats');
 });
-
-

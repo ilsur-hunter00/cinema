@@ -1,4 +1,4 @@
-<div class="popup">
+<div class="popup" id="popup-delete_hall">
   <div class="popup__container">
     <div class="popup__content">
       <div class="popup__header">
