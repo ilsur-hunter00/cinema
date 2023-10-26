@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('type');
             $table->bigInteger('row_number');
             $table->bigInteger('seat_number');
+            $table->decimal('price')->nullable();
             $table->timestamps();
         });
     }

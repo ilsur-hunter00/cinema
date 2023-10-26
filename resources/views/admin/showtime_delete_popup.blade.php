@@ -9,15 +9,14 @@
 
       </div>
       <div class="popup__wrapper">
-        <form action="вудуеу_hall" method="post" accept-charset="utf-8">
-            @csrf
-          <p class="conf-step__paragraph">Вы действительно хотите снять с сеанса фильм <span></span>?</p>
-          <!-- В span будет подставляться название фильма -->
-          <div class="conf-step__buttons text-center">
-            <input type="submit" value="Удалить" class="conf-step__button conf-step__button-accent">
-            <button class="conf-step__button conf-step__button-regular">Отменить</button>
-          </div>
-        </form>
+          <form action="{{ route('delete_screening') }}" method="get" accept-charset="utf-8">
+              @csrf
+              <input type="hidden" id="screening-id" name="screening_id" value="">
+              <p class="conf-step__paragraph">Вы действительно хотите снять с сеанса фильм <span id="movie-title"></span>?</p>
+              <div class="conf-step__buttons text-center">
+                  <input type="submit" value="Удалить" class="conf-step__button conf-step__button-accent">
+              </div>
+          </form>
       </div>
     </div>
   </div>

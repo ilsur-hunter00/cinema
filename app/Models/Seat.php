@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $type
  * @property int $row_number
  * @property int $seat_number
+ * @property float $price
  * @property Carbon $created_at
  * @property Carbon $updated_at
  */
@@ -25,7 +26,8 @@ class Seat extends Model
         'cinema_hall_id',
         'type',
         'row_number',
-        'seat_number'
+        'seat_number',
+        'price'
     ];
 
     /**

@@ -526,3 +526,13 @@ input[type='radio'], input[type='submit'], button, .conf-step__header, select {
         transition: .3s all ease; }
 
 /*# sourceMappingURL=styles.css.map */
+
+/*.conf-step__selector-link {*/
+/*    text-decoration: none;*/
+/*    color: black;*/
+/*}*/
+
+/*.conf-step__selector-active {*/
+/*    background: #16A6AF;*/
+/*    color: white;*/
+/*}*/

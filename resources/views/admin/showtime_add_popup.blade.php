@@ -9,24 +9,30 @@
 
       </div>
       <div class="popup__wrapper">
-        <form action="add_movie" method="post" accept-charset="utf-8">
+        <form action="{{ route('add_screening') }}" method="post" accept-charset="utf-8">
             @csrf
-          <label class="conf-step__label conf-step__label-fullsize" for="hall">
-            Название зала
-            <select class="conf-step__input" name="hall" required>
-              <option value="1" selected>Зал 1</option>
-              <option value="2">Зал 2</option>
-            </select>
-          </label>
-          <label class="conf-step__label conf-step__label-fullsize" for="name">
-            Время начала
-            <input class="conf-step__input" type="time" value="00:00" name="start_time" required>
-          </label>
+            <label class="conf-step__label conf-step__label-fullsize" for="hall">
+              Название зала
+              <select class="conf-step__input" name="hall" required>
+                  @foreach($halls as $hall)
+                      <option value="{{ $hall->id }}" selected name="hall_name">{{ $hall->name }}</option>
+                  @endforeach
+              </select>
+            </label>
 
-          <label class="conf-step__label conf-step__label-fullsize" for="name">
-            Название зала
-            <input class="conf-step__input" type="text" placeholder="Например, &laquo;Зал 1&raquo;" name="name" required>
-          </label>
+            <label class="conf-step__label conf-step__label-fullsize" for="screening-start-time">
+              Время начала
+              <input class="conf-step__input" type="time" value="00:00" name="screening-start-time" required>
+            </label>
+
+            <label class="conf-step__label conf-step__label-fullsize" for="movie">
+                Название фильма
+                <select class="conf-step__input" name="movie" required>
+                    @foreach($movies as $movie)
+                        <option value="{{ $movie->id }}" selected name="movie_name">{{ $movie->title }}</option>
+                    @endforeach
+                </select>
+            </label>
 
           <div class="conf-step__buttons text-center">
             <input type="submit" value="Добавить" class="conf-step__button conf-step__button-accent">

@@ -8,15 +8,24 @@
                 <h2 class="login__title">Авторизация</h2>
             </header>
             <div class="login__wrapper">
-                <form class="login__form" action="login_submit" method="get" accept-charset="utf-8">
+                @if($errors->any())
+                    <div style="background: red; padding: 10px;">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form class="login__form" action="{{ route('admin_login') }}" method="post" accept-charset="utf-8">
                     @csrf
-                    <label class="login__label" for="mail">
+                    <label class="login__label" for="email">
                         E-mail
-                        <input class="login__input" type="email" placeholder="example@domain.xyz" name="mail" required>
+                        <input class="login__input" type="email" placeholder="example@domain.xyz" name="email" required>
                     </label>
                     <label class="login__label" for="pwd">
                         Пароль
-                        <input class="login__input" type="password" placeholder="" name="pwd" required>
+                        <input class="login__input" type="password" placeholder="" name="password" required>
                     </label>
                     <div class="text-center">
                         <input value="Авторизоваться" type="submit" class="login__button">

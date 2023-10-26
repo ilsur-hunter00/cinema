@@ -26,5 +26,6 @@
 <script src="{{ asset('admin/js/accordeon.js') }}"></script>
 <script src="{{ asset('admin/js/popup.js') }}"></script>
 <script src="{{ asset('admin/js/chair-color.js') }}"></script>
+<script src="{{ asset('admin/js/script.js') }}"></script>
 </body>
 </html>
