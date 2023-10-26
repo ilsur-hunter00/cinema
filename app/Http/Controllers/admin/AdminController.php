@@ -7,6 +7,7 @@ use App\Models\CinemaHall;
 use App\Models\Movie;
 use App\Models\Screening;
 use App\Models\Seat;
+use App\Models\User;
 use DateInterval;
 use Illuminate\Http\Request;
 
@@ -187,5 +188,14 @@ class AdminController extends Controller
         Screening::query()->where('id', $request->get('screening_id'))->delete();
 
         return back();
+    }
+
+    public function openSells(Request $request)
+    {
+        User::query()->where('name', 'admin')->update([
+            'is_opened_sells' => true
+        ]);
+
+        return redirect()->back()->with('is_opened_sells', true);
     }
 }

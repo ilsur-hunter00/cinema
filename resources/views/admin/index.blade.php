@@ -168,8 +168,13 @@
                 <h2 class="conf-step__title">Открыть продажи</h2>
             </header>
             <div class="conf-step__wrapper text-center">
-                <p class="conf-step__paragraph">Всё готово, теперь можно:</p>
-                <button class="conf-step__button conf-step__button-accent">Открыть продажу билетов</button>
+                @if(!\App\Models\User::query()->where('name', 'admin')->first()->is_opened_sells)
+                    <p class="conf-step__paragraph">Всё готово, теперь можно:</p>
+                    <form action="{{ route('open_sells') }}" method="post">
+                        @csrf
+                        <button type="submit" class="conf-step__button" style="margin-left: 20px;color: #FFFFFF;background-color: #16A6AF;padding: 12px 32px;">Открыть продажу билетов</button>
+                    </form>
+                @endif
             </div>
         </section>
     </main>

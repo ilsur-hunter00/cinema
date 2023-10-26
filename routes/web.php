@@ -37,6 +37,8 @@ Route::prefix('/admin-panel')->middleware('auth')->group(function () {
     Route::post('/create-screening', [AdminController::class, 'createScreening'])->name('add_screening');
 
     Route::get('/delete-screening', [AdminController::class, 'deleteScreening'])->name('delete_screening');
+
+    Route::post('/open-sells', [AdminController::class, 'openSells'])->name('open_sells');
 });
 
 Route::prefix('/user-panel')->middleware('auth')->group(function () {
