@@ -17,6 +17,7 @@
 </header>
 
 @yield('content')
-
+<script src="{{ asset('client/js/script.js') }}"></script>
+<script src="{{ asset('client/js/chair-color.js') }}"></script>
 </body>
 </html>

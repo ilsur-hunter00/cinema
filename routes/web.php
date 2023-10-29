@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\client\ClientController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,10 @@ Route::prefix('/admin-panel')->middleware('auth')->group(function () {
     Route::post('/open-sells', [AdminController::class, 'openSells'])->name('open_sells');
 });
 
-Route::prefix('/user-panel')->middleware('auth')->group(function () {
-
+Route::prefix('/client-panel')->group(function () {
+    Route::get('/', [ClientController::class, 'index'])->name('get_client_info');
+    Route::get('/hall/{id}', [ClientController::class, 'getHall'])->name('get_hall');
+    Route::get('/ticket', [ClientController::class, 'getTicket'])->name('get_ticket');
+    Route::get('/payment', [ClientController::class, 'getPayment'])->name('get_payment');
+    Route::post('/choose-seats', [ClientController::class, 'chooseSeats'])->name('choose_seats');
 });

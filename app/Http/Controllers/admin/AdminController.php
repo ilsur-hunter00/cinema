@@ -144,12 +144,14 @@ class AdminController extends Controller
     {
         $request->validate([
             'movie-name' => 'required|string',
-            'movie-duration' => 'required|numeric'
+            'movie-duration' => 'required|numeric',
+            'movie-description' => 'string',
         ]);
 
         (new Movie())->create([
             'title' => $request->get('movie-name'),
-            'duration' => $request->get('movie-duration')
+            'duration' => $request->get('movie-duration'),
+            'description' => $request->get('movie-description'),
         ]);
 
         return back();
