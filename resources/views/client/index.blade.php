@@ -46,16 +46,18 @@
                         <h3 class="movie-seances__hall-title">{{ $hall->name }}</h3>
                         <ul class="movie-seances__list">
                             @foreach($screenings as $screening)
-                                <li class="movie-seances__time-block">
-                                    <a
-                                        @if(!\App\Models\User::where('name', 'admin')->first()->is_opened_sells)
-                                            style="color: grey;pointer-events: none;background-color: #f0f0f0;cursor: not-allowed;"
-                                        @endif
-                                        class="movie-seances__time"
-                                        href="{{ route('get_hall', $screening->id) }}">
-                                        {{ (new DateTime($screening->start_time))->format('H:i') }}
-                                    </a>
-                                </li>
+                                @if($screening->cinemaHall->id == $hall->id && $screening->movie->id == $movie->id)
+                                    <li class="movie-seances__time-block">
+                                        <a
+                                            @if(!\App\Models\User::where('name', 'admin')->first()->is_opened_sells)
+                                                style="color: grey;pointer-events: none;background-color: #f0f0f0;cursor: not-allowed;"
+                                            @endif
+                                            class="movie-seances__time"
+                                            href="{{ route('get_hall', $screening->id) }}">
+                                            {{ (new DateTime($screening->start_time))->format('H:i') }}
+                                        </a>
+                                    </li>
+                                @endif
                             @endforeach
                         </ul>
                     </div>

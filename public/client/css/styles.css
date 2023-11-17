@@ -17,6 +17,11 @@ body {
   background-position: right;
 }
 
+.alert-danger {
+    color: red;
+    font-size: 18px;
+}
+
 .page-header {
   padding: 1.4rem;
 }

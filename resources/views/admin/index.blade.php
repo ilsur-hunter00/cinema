@@ -14,6 +14,9 @@
                 <h2 class="conf-step__title">Управление залами</h2>
             </header>
             <div class="conf-step__wrapper">
+                @if($errors->has('hall_name'))
+                    <div class="alert alert-danger">{{ $errors->first('hall_name') }}</div>
+                @endif
                 <p class="conf-step__paragraph">Доступные залы:</p>
                 <ul class="conf-step__list">
                     @foreach($halls as $hall)
@@ -47,6 +50,12 @@
                         @endforeach
                     </ul>
                     <p class="conf-step__paragraph">Укажите количество рядов и максимальное количество кресел в ряду:</p>
+                    @if ($errors->has('rows') || $errors->has('seats_per_row'))
+                        <div class="conf-step__error alert-danger">
+                            <p>{{ $errors->first('rows') }}</p>
+                            <p>{{ $errors->first('seats_per_row') }}</p>
+                        </div>
+                    @endif
                     <div class="conf-step__legend">
                         <label class="conf-step__label">Рядов, шт<input name="rows" type="text" class="conf-step__input" value="{{ $halls->where('id', $selectedHallId)->first()->rows ?? '' }}" placeholder="10"></label>
                         <span class="multiplier">x</span>
@@ -108,6 +117,12 @@
                     </ul>
 
                     <p class="conf-step__paragraph">Установите цены для типов кресел:</p>
+                    @if ($errors->has('standart-chair') || $errors->has('vip-chair'))
+                        <div class="conf-step__error alert-danger">
+                            <p>{{ $errors->first('standart-chair') }}</p>
+                            <p>{{ $errors->first('vip-chair') }}</p>
+                        </div>
+                    @endif
                     <div class="conf-step__legend">
                         <label class="conf-step__label">Цена, рублей<input type="text" name="standart-chair" class="conf-step__input" placeholder="100" ></label>
                         за <span class="conf-step__chair conf-step__chair_standart"></span> обычные кресла
@@ -133,6 +148,13 @@
                 <p class="conf-step__paragraph">
                     <button class="conf-step__button conf-step__button-accent" data-target="#popup-add_movie">Добавить фильм</button>
                 </p>
+                @if ($errors->has('movie-name') || $errors->has('movie-duration') || $errors->has('movie-description'))
+                    <div class="conf-step__error alert-danger">
+                        <p>{{ $errors->first('movie-name') }}</p>
+                        <p>{{ $errors->first('movie-duration') }}</p>
+                        <p>{{ $errors->first('movie-description') }}</p>
+                    </div>
+                @endif
                 <div class="conf-step__movies">
                     @foreach($movies as $movie)
                         <div class="conf-step__movie" data-target="#popup-add_showtime">

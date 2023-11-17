@@ -26,6 +26,11 @@ body {
   background-attachment: fixed;
   counter-reset: num; }
 
+.alert-danger {
+    color: red;
+    font-size: 18px;
+}
+
 input[type='radio'], input[type='submit'], button, .conf-step__header, select {
   cursor: pointer; }
 

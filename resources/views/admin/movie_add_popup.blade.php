@@ -13,15 +13,15 @@
                     @csrf
                     <label class="conf-step__label conf-step__label-fullsize" for="movie-name">
                         Название фильма
-                        <input class="conf-step__input" type="text" placeholder="Например, &laquo;Гражданин Кейн&raquo;" name="movie-name" required>
+                        <input class="conf-step__input" type="text" placeholder="Например, &laquo;Гражданин Кейн&raquo;" name="movie-name">
                     </label>
                     <label class="conf-step__label conf-step__label-fullsize" for="movie-duration">
                         Длительность фильма
-                        <input class="conf-step__input" type="text" placeholder="110" name="movie-duration" required>
+                        <input class="conf-step__input" type="text" placeholder="110" name="movie-duration">
                     </label>
                     <label class="conf-step__label conf-step__label-fullsize" for="movie-description">
                         Описание фильма
-                        <input class="conf-step__input" type="text" placeholder="Описание фильма" name="movie-description" required>
+                        <input class="conf-step__input" type="text" placeholder="Описание фильма" name="movie-description">
                     </label>
                     <div class="conf-step__buttons text-center">
                         <input type="submit" value="Добавить фильм" class="conf-step__button conf-step__button-accent">
